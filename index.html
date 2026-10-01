@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Encuesta anónima de satisfacción</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#2b6be6;--ink:#2b3558;--mute:#6b7596;--line:#e3e9fb;--bg:#f4f7ff}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);min-height:100vh;display:grid;place-items:center;padding:20px;-webkit-font-smoothing:antialiased}
+.sv{width:100%;max-width:460px;background:#fff;border-radius:26px;padding:30px 24px;box-shadow:0 14px 50px -16px rgba(60,90,180,.35)}
+h3{font-size:24px;color:#111a33;line-height:1.2;margin-bottom:6px}
+.d{color:var(--mute);font-size:15px;margin-bottom:18px}
+.pb{display:flex;gap:10px;margin-bottom:18px}.pb i{flex:1;height:5px;border-radius:9px;background:#e6e9f2;transition:background .4s}.pb i.on{background:var(--blue)}
+.step{display:none;animation:rise .45s both}.step.show{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.q{font-weight:700;color:#111a33;font-size:18px;margin:18px 0 10px}
+.sc{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.sc button{height:48px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font:inherit;font-size:18px;font-weight:600;color:var(--ink);cursor:pointer;transition:.2s}
+.sc button.on{background:var(--blue);border-color:var(--blue);color:#fff;transform:scale(1.06)}
+.lb{display:flex;justify-content:space-between;font-size:13px;color:var(--mute);margin-top:4px}
+textarea{width:100%;height:96px;border:1.5px solid var(--line);border-radius:14px;padding:12px;font:inherit;resize:none}
+textarea:focus{outline:2px solid #bcd0ff}
+.row{display:flex;gap:10px;margin-top:22px}
+.row button{flex:1;padding:14px;border-radius:14px;font:inherit;font-weight:600;cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.row .go{background:var(--blue);border-color:var(--blue);color:#fff}
+.row .go:disabled{background:#a9c0f7;border-color:#a9c0f7;cursor:not-allowed}
+.ok{text-align:center;padding:20px 0}
+.ok .ico{width:64px;height:64px;border-radius:50%;background:#e3f8ec;display:grid;place-items:center;margin:0 auto 14px}
+.ok svg{width:32px;height:32px;stroke:#1aa35a;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:30;animation:dr .6s .2s both}
+@keyframes dr{from{stroke-dashoffset:30}to{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="sv">
+ <h3>Encuesta anónima de satisfacción</h3>
+ <p class="d">Para pacientes que asistieron a la consulta presencial y decidieron no operarse. No pedimos tu nombre ni datos personales.</p>
+ <div class="pb"><i class="on"></i><i id="p2"></i></div>
+
+ <div class="step show" id="s1">
+  <p class="d" style="margin:0">Paso 1 de 2 · ¿Cuánto influyó cada motivo en tu decisión?</p>
+  <div class="q">No me cerró el precio</div><div class="sc" data-k="precio"></div><div class="lb"><span>Nada</span><span>Muchísimo</span></div>
+  <div class="q">No se le entiende el doctor</div><div class="sc" data-k="entiende"></div><div class="lb"><span>Nada</span><span>Muchísimo</span></div>
+  <div class="row"><button class="go" id="nx" disabled>Siguiente</button></div>
+ </div>
+
+ <div class="step" id="s2">
+  <p class="d" style="margin:0">Paso 2 de 2 · ¿Cuánto influyó cada motivo en tu decisión?</p>
+  <div class="q">Los detalles del postoperatorio me dan miedo</div><div class="sc" data-k="miedo"></div><div class="lb"><span>Nada</span><span>Muchísimo</span></div>
+  <div class="q">¿Algo más que quieras contarnos? (opcional)</div><textarea id="cm" maxlength="500"></textarea>
+  <div class="row"><button id="bk">Atrás</button><button class="go" id="sd" disabled>Enviar</button></div>
+ </div>
+
+ <div class="step" id="s3"><div class="ok"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></div><h3>¡Gracias por tu respuesta!</h3><p class="d">Tu opinión anónima fue registrada.</p></div></div>
+</div>
+
+<script>
+const SCRIPT_URL='PEGAR_AQUI_LA_URL_DEL_APPS_SCRIPT';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const A={};
+$$('.sc').forEach(g=>{for(let n=1;n<=5;n++){const b=document.createElement('button');b.textContent=n;b.onclick=()=>{[...g.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');A[g.dataset.k]=n;$('#nx').disabled=!(A.precio&&A.entiende);$('#sd').disabled=!A.miedo};g.appendChild(b)}});
+const show=id=>$$('.step').forEach(s=>s.classList.toggle('show',s.id==id));
+$('#nx').onclick=()=>{show('s2');$('#p2').classList.add('on')};
+$('#bk').onclick=()=>{show('s1');$('#p2').classList.remove('on')};
+$('#sd').onclick=async()=>{
+ const b=$('#sd');b.disabled=true;b.textContent='Enviando…';
+ const body=new URLSearchParams({precio:A.precio,entiende:A.entiende,miedo:A.miedo,comentario:$('#cm').value.trim()});
+ try{await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body})}catch(e){}
+ show('s3');$('#p2').classList.add('on');
+};
+</script>
+</body>
+</html>
