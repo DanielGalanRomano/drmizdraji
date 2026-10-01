@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Encuesta anónima de satisfacción</title>
+<title>Doctor Guillermo Mizdraji Encuesta anónima de satisfacción</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#2b6be6;--ink:#2b3558;--mute:#6b7596;--line:#e3e9fb;--bg:#f4f7ff}
@@ -34,7 +34,7 @@ textarea:focus{outline:2px solid #bcd0ff}
 </head>
 <body>
 <div class="sv">
- <h3>Encuesta anónima de satisfacción</h3>
+ <h3>Doctor Guillermo Mizdraji - Encuesta anónima de satisfacción</h3>
  <p class="d">Para pacientes que asistieron a la consulta presencial y decidieron no operarse. No pedimos tu nombre ni datos personales.</p>
  <div class="pb"><i class="on"></i><i id="p2"></i></div>
 
@@ -56,7 +56,7 @@ textarea:focus{outline:2px solid #bcd0ff}
 </div>
 
 <script>
-const SCRIPT_URL='PEGAR_AQUI_LA_URL_DEL_APPS_SCRIPT';
+const SCRIPT_URL='https://script.google.com/macros/s/AKfycbwKBjZqtlM4HpOd2S0fEuQtG0AUZBvLL6M4dpSFRg0msvHRJLKL5t7W5K9JP4Q9xSfj/exec';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const A={};
 $$('.sc').forEach(g=>{for(let n=1;n<=5;n++){const b=document.createElement('button');b.textContent=n;b.onclick=()=>{[...g.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');A[g.dataset.k]=n;$('#nx').disabled=!(A.precio&&A.entiende);$('#sd').disabled=!A.miedo};g.appendChild(b)}});
