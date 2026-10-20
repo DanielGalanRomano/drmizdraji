@@ -48,6 +48,9 @@ nav .ncta:hover{background:#333}
 nav .burger i{background:var(--ink)}
 nav.dk{background:rgba(9,9,10,.86);border-bottom-color:var(--line)}
 nav.dk .logo{color:#fff}
+nav .logo{display:flex;align-items:center;line-height:0}
+nav .logo img{height:46px;width:auto;display:block;filter:invert(1);mix-blend-mode:multiply;transition:filter .35s}
+nav.dk .logo img{filter:none;mix-blend-mode:screen}
 nav.dk .links{color:var(--mu)}
 nav.dk .links a:hover,nav.dk .links a.on{color:#fff}
 nav.dk .dm{background:#0d0d0f;border-color:var(--line);box-shadow:none}
@@ -152,7 +155,7 @@ footer b{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;font-w
 </head>
 <body>
 <nav><div class="wrap nav">
- <a href="#top" class="logo">GM</a>
+ <a href="#top" class="logo" aria-label="Dr. Guillermo Mizdraji - Inicio"><img src="images/logo.jpeg" alt="GM" width="523" height="350"></a>
  <button class="burger" id="bg" aria-label="Menú"><i></i><i></i><i></i></button>
  <div class="links" id="lk">
   <div class="dd"><a href="#rinoplastia">Rinoplastia</a><div class="dm"><a href="#funcional">Funcional</a><a href="#estetica">Estética</a></div></div>
