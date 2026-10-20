@@ -32,21 +32,47 @@ nav{position:sticky;top:0;z-index:50;background:rgba(9,9,10,.82);backdrop-filter
 .burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
 .burger i{display:block;width:22px;height:1.5px;background:#fff;margin:6px auto;transition:.3s}
 .burger.x i:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.burger.x i:nth-child(2){opacity:0}.burger.x i:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
-/* hero */
-.hero{position:relative;padding-bottom:0}
-.hbg{position:absolute;inset:0 0 70px 0;overflow:hidden}
-.hbg img{width:100%;height:100%;object-fit:cover;object-position:70% 40%}
-.hbg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,9,10,.95) 8%,rgba(9,9,10,.6) 55%,rgba(9,9,10,.25))}
-.hc{position:relative;padding:110px 22px 150px;max-width:1080px;margin:0 auto}
-.hc h1{font-size:clamp(46px,8vw,86px);max-width:720px;padding-left:22px;border-left:3px solid var(--ac);animation:rise 1s .2s both}
-.hc p{color:#c9c9d2;max-width:460px;margin:22px 0 10px 25px;animation:rise 1s .45s both}
-.loc{font-size:14px;color:var(--ac2);margin:0 0 28px 25px;animation:rise 1s .6s both}
-.btns{margin-left:25px;display:flex;gap:12px;flex-wrap:wrap}
+/* hero claro */
+.btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-block;padding:15px 32px;border-radius:999px;background:var(--ac);color:#0a0a0b;font-weight:700;font-size:15px;transition:transform .25s,background .25s}
 .btn.o{background:none;border:1px solid var(--ac2);color:#fff}.btn:hover{transform:translateY(-3px);background:#fff;color:#000}
-.fc{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:-70px;z-index:2}
-.fc div{background:var(--s2);border:1px solid var(--line);border-radius:18px;padding:26px 24px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
-.fc h3{font-size:26px;margin-bottom:4px}.fc p{color:var(--mu);font-size:14px}
+:root{--cream:#fdfcfa;--ink:#141414;--warm:#c49a7c;--gray:#6f6c67}
+nav{background:#fdfcfa;border-bottom:1px solid transparent;transition:background .35s,border-color .35s}
+nav .logo{font-family:Manrope,sans-serif;font-weight:700;font-size:15px;letter-spacing:.32em;color:var(--ink);transition:color .35s}
+nav .links{color:var(--gray);text-transform:none;letter-spacing:0;font-size:14.5px;font-weight:500}
+nav .links a:hover,nav .links a.on{color:var(--ink)}
+nav .dm{background:#fff;border-color:#ece8e2;box-shadow:0 14px 34px rgba(0,0,0,.08)}
+nav .dm a:hover{background:#f5f2ed}
+nav .ncta{background:var(--ink);color:#fff!important;box-shadow:0 10px 24px rgba(0,0,0,.22);font-weight:600}
+nav .ncta:hover{background:#333}
+nav .burger i{background:var(--ink)}
+nav.dk{background:rgba(9,9,10,.86);border-bottom-color:var(--line)}
+nav.dk .logo{color:#fff}
+nav.dk .links{color:var(--mu)}
+nav.dk .links a:hover,nav.dk .links a.on{color:#fff}
+nav.dk .dm{background:#0d0d0f;border-color:var(--line);box-shadow:none}
+nav.dk .dm a:hover{background:var(--s2)}
+nav.dk .ncta{background:var(--ac);color:#0a0a0b!important;box-shadow:none}
+nav.dk .burger i{background:#fff}
+.hero{position:relative;background:var(--cream);color:var(--ink);padding:0 0 40px}
+.hg{max-width:1180px;margin:0 auto;padding:40px 28px 10px;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;min-height:calc(100vh - 190px)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#a9a39b;margin-bottom:22px;animation:rise 1s .1s both}
+.hero h1{font-family:Manrope,system-ui,sans-serif;font-weight:500;font-size:clamp(42px,6.2vw,78px);line-height:1.02;letter-spacing:-.045em;color:var(--ink);animation:rise 1s .2s both}
+.hero h1 em{font-style:normal;background:none;-webkit-text-fill-color:initial;color:var(--warm)}
+.hero .lead{color:var(--gray);font-size:17px;max-width:470px;margin:26px 0 8px;animation:rise 1s .4s both}
+.hero .loc{color:#a9a39b;margin:0 0 30px;font-size:14px;animation:rise 1s .5s both}
+.hero .btns{margin:0;animation:rise 1s .6s both}
+.hero .btn{background:var(--ink);color:#fff;padding:16px 34px;font-weight:600;box-shadow:0 14px 28px rgba(0,0,0,.22)}
+.hero .btn:hover{background:#333;color:#fff}
+.hero .btn.o{background:#fff;color:var(--ink);border:1px solid #e6e1da;box-shadow:none}
+.hero .btn.o:hover{background:#f5f2ed;color:var(--ink)}
+.blob{position:relative;justify-self:end;width:100%;max-width:520px;aspect-ratio:1/1.02;overflow:hidden;background:#e9e4dc;border-radius:58% 42% 52% 48% / 44% 55% 45% 56%;animation:morph 14s ease-in-out infinite alternate,rise 1.1s .3s both;box-shadow:0 30px 60px rgba(60,40,20,.12)}
+.blob img{width:100%;height:100%;object-fit:cover;object-position:55% 45%;display:block}
+@keyframes morph{0%{border-radius:58% 42% 52% 48% / 44% 55% 45% 56%}50%{border-radius:46% 54% 44% 56% / 55% 42% 58% 45%}100%{border-radius:55% 45% 60% 40% / 48% 52% 48% 52%}}
+.fc{max-width:1180px;margin:30px auto 0;padding:26px 28px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;border-top:1px solid #ece8e2}
+.fc div{background:none;border:0;border-radius:0;padding:0;box-shadow:none}
+.fc h3{font-family:Manrope,sans-serif;font-size:15px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px;color:var(--ink)}
+.fc p{color:var(--gray);font-size:14px;line-height:1.55}
 @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
 .feat{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center;margin-bottom:60px}
@@ -106,16 +132,18 @@ footer b{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;font-w
 
 @media(max-width:900px){
  .burger{display:block}
- .links{position:absolute;top:68px;left:0;right:0;background:#0d0d0f;flex-direction:column;align-items:stretch;gap:0;max-height:0;overflow:hidden;transition:max-height .35s;border-bottom:1px solid var(--line);padding:0 10px}
+ .links{position:absolute;top:68px;left:0;right:0;background:#fdfcfa;flex-direction:column;align-items:stretch;gap:0;max-height:0;overflow:hidden;transition:max-height .35s;border-bottom:1px solid var(--line);padding:0 10px}
  .links.open{max-height:460px;padding:8px 10px 14px}
  .dd>a:after{display:none}.dm{position:static;opacity:1;visibility:visible;transform:none;border:0;background:none;padding:0 0 0 14px}
  .ncta{margin:8px 0 0;text-align:center}
+ nav.dk .links{background:#0d0d0f}
 }
 @media(max-width:780px){
  section{padding:60px 0}
- .hc{padding:70px 22px 130px}
- .fc,.feat,.grid{grid-template-columns:1fr}.feat{gap:24px}
- .fc{margin-top:-60px}
+ .hg{grid-template-columns:1fr;padding-top:26px;min-height:0;gap:34px}
+ .blob{justify-self:center;max-width:420px;order:2}
+ .fc{grid-template-columns:1fr;gap:18px}
+ .feat,.grid{grid-template-columns:1fr}.feat{gap:24px}
  .cs{flex:0 0 78%}
  .ros{grid-template-columns:1fr}
 }
@@ -134,18 +162,21 @@ footer b{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;font-w
 </div></nav>
 
 <header class="hero" id="top">
- <div class="hbg"><img src="images/hero.jpg" alt="Perfil de rinoplastia con resultado natural"></div>
- <div class="hc">
-  <h1>Luce natural y <em>respira sin límites</em></h1>
-  <p>Dr. Guillermo Mizdraji, otorrinolaringólogo. Rinoplastia ultrasónica funcional y estética.</p>
-  <div class="loc">Palermo · Rosario</div>
-  <div class="btns"><a class="btn" id="cta" href="#" target="_blank" rel="noopener">Agenda tu evaluación</a><a class="btn o" href="#rinoplastia">Conocer más</a></div>
+ <div class="hg">
+  <div class="ht">
+   <div class="eyebrow">Rinoplastia / Funcional / Estética</div>
+   <h1>Luce natural y <em>respira sin límites</em></h1>
+   <p class="lead">Dr. Guillermo Mizdraji, otorrinolaringólogo. Rinoplastia ultrasónica funcional y estética.</p>
+   <div class="loc">Palermo · Rosario</div>
+   <div class="btns"><a class="btn" id="cta" href="#" target="_blank" rel="noopener">Agenda tu evaluación</a><a class="btn o" href="#rinoplastia">Conocer más</a></div>
+  </div>
+  <div class="blob"><img src="images/heroinicial.jpg" alt="Perfil de rinoplastia con resultado natural"></div>
  </div>
- <div class="wrap"><div class="fc">
+ <div class="fc">
   <div><h3>Respirá mejor</h3><p>Corregimos tabique y cornetes junto con la estética.</p></div>
   <div><h3>Resultado natural</h3><p>Un perfil armónico con tu rostro.</p></div>
   <div><h3>Técnica ultrasónica</h3><p>Precisión al remodelar el hueso nasal.</p></div>
- </div></div>
+ </div>
 </header>
 
 <section id="rinoplastia"><div class="wrap">
@@ -211,7 +242,9 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const WA='https://wa.me/5491153890881?text='+encodeURIComponent('Hola Dr. Mizdraji, quiero agendar una evaluación');
 const WR='https://wa.me/5491153890881?text='+encodeURIComponent('Hola Dr. Mizdraji, quiero agendar una evaluación en Rosario');
 $('#wa').href=WA;$('#cta').href=WA;$('#ncta').href=WA;$('#cro').href=WR;
-const bg=$('#bg'),lk=$('#lk');
+const bg=$('#bg'),lk=$('#lk'),nv=$('nav');
+const navMode=()=>nv.classList.toggle('dk',scrollY>$('#top').offsetHeight-80);
+addEventListener('scroll',navMode,{passive:true});addEventListener('resize',navMode);navMode();
 bg.onclick=()=>{bg.classList.toggle('x');lk.classList.toggle('open')};
 lk.onclick=e=>{if(e.target.tagName=='A'){bg.classList.remove('x');lk.classList.remove('open')}};
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
