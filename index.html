@@ -94,12 +94,13 @@ nav.dk .burger i{background:#fff}
 /* casos slideshow */
 .cv{overflow:hidden;border-radius:22px}
 .ct{display:flex;gap:16px;will-change:transform}
-.cs{flex:0 0 calc((100% - 32px)/3);aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:var(--s1)}
+.cs{flex:0 0 calc((100% - 32px)/3);aspect-ratio:1/1;border-radius:22px;overflow:hidden;background:var(--s1)}
 .cs img{width:100%;height:100%;object-fit:cover;display:block}
 /* rosario */
 .ros{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:34px}
 .ros img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:22px}
 .rt{text-align:center;max-width:560px;margin:0 auto;color:var(--mu)}.rt .btn{margin-top:22px}
+.addr{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 auto 22px;font-weight:600;color:var(--ac);text-align:center}.addr svg{width:20px;height:20px;flex:0 0 auto}.addr a{color:inherit;text-decoration:none;border-bottom:1px solid var(--ac2)}
 /* faq */
 .fqw{max-width:780px;margin:0 auto}
 .fg{font-size:30px;margin:38px 0 14px;color:var(--ac)}
@@ -204,12 +205,13 @@ footer b{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;font-w
 <section id="casos" class="alt"><div class="wrap">
  <h2><em>Resultados</em></h2>
  <p class="sub">Resultados y momentos de la práctica diaria.</p>
- <div class="cv"><div class="ct" id="ct"><div class="cs"><img src="images/caso1.jpg" alt="Caso 1" style="object-position:50% 40%"></div><div class="cs"><img src="images/caso2.jpg" alt="Caso 2" style="object-position:50% 20%"></div><div class="cs"><img src="images/caso3.jpg" alt="Caso 3" style="object-position:50% 40%"></div><div class="cs"><img src="images/caso4.jpg" alt="Caso 4" style="object-position:50% 40%"></div><div class="cs"><img src="images/caso5.jpg" alt="Caso 5" style="object-position:35% 50%"></div><div class="cs"><img src="images/caso6.jpg" alt="Caso 6" style="object-position:70% 50%"></div></div></div>
+ <div class="cv"><div class="ct" id="ct"><div class="cs"><img src="images/caso1.jpg" alt="Caso 1" loading="lazy"></div><div class="cs"><img src="images/caso2.jpg" alt="Caso 2" loading="lazy"></div><div class="cs"><img src="images/caso3.jpg" alt="Caso 3" loading="lazy"></div><div class="cs"><img src="images/caso4.jpg" alt="Caso 4" loading="lazy"></div><div class="cs"><img src="images/caso5.jpg" alt="Caso 5" loading="lazy"></div><div class="cs"><img src="images/caso6.jpg" alt="Caso 6" loading="lazy"></div><div class="cs"><img src="images/caso7.jpg" alt="Caso 7" loading="lazy"></div><div class="cs"><img src="images/caso8.jpg" alt="Caso 8" loading="lazy"></div><div class="cs"><img src="images/caso9.jpg" alt="Caso 9" loading="lazy"></div><div class="cs"><img src="images/caso10.jpg" alt="Caso 10" loading="lazy"></div><div class="cs"><img src="images/caso11.jpg" alt="Caso 11" loading="lazy"></div></div></div>
 </div></section>
 
 <section id="rosario"><div class="wrap">
  <h2>Atención <em>en Rosario</em></h2>
  <p class="sub">Consultas presenciales en Rosario, con turno previo.</p>
+ <p class="addr rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.800 7 12 7 12z"/><circle cx="12" cy="10" r="2.500"/></svg><a href="https://www.google.com/maps/search/?api=1&query=Av.+Carballo+128+Rosario+Santa+Fe" target="_blank" rel="noopener">Av.Carballo 128 - Local 2 | Ciudad Ribera - Puerto Norte</a></p>
  <div class="ros one rv"><img src="images/rosario1.jpg" alt="Consultorio en Rosario"></div>
  <div class="rt rv"><p>Si vivís en Rosario o alrededores podés realizar tu evaluación sin viajar a Buenos Aires. Escribinos y coordinamos tu turno.</p><a class="btn" id="cro" href="#" target="_blank" rel="noopener">Pedir turno en Rosario</a></div>
 </div></section>
